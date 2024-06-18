@@ -8,7 +8,7 @@ task = '''
        '''
 
 news_anchor = autogen.AssistantAgent(
-    name="Writer",
+    name="News Anchor",
     system_message="You are a news anchor. You write engaging and accurate " 
         "news on the most relevant topics of the day. You must incorporate "
         "stories from experts on each topic and prioritize only the most important "
@@ -98,7 +98,7 @@ review_chats = [
      "max_turns": 1},
 ]
 
-critic.register_nested_chats(
+editor.register_nested_chats(
     review_chats,
     trigger=news_anchor,
 )

@@ -7,6 +7,15 @@ task = '''
         news and updates based on timeliness and the users suggested interests.
        '''
 
+news_anchor = autogen.AssistantAgent(
+    name="Writer",
+    system_message="You are a news anchor. You write engaging and accurate " 
+        "news on the most relevant topics of the day. You must incorporate "
+        "stories from experts on each topic and prioritize only the most important "
+        "or relevant stories told in a clear and consise way.",
+    llm_config=llm_config,
+)
+
 reply = news_anchor.generate_reply(messages=[{"content": task, "role": "user"}])
 
 editor = autogen.AssistantAgent(
